@@ -1,0 +1,19 @@
+h1 Listing doctors
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @doctors.each do |doctor|
+      tr
+        td = link_to 'Show', doctor
+        td = link_to 'Edit', edit_doctor_path(doctor)
+        td = link_to 'Destroy', doctor, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Doctor', new_doctor_path

@@ -23,6 +23,7 @@ Rails.application.config.assets.precompile += %w( pages.css )
 Rails.application.config.assets.precompile += %w( tables.css )
 Rails.application.config.assets.precompile += %w( uielements.css )
 Rails.application.config.assets.precompile += %w( widgets.css )
+Rails.application.config.assets.precompile += %w( doctors.css )
 
 # Javascripts
 Rails.application.config.assets.precompile += %w( appviews.js )
@@ -37,3 +38,4 @@ Rails.application.config.assets.precompile += %w( pages.js )
 Rails.application.config.assets.precompile += %w( tables.js )
 Rails.application.config.assets.precompile += %w( uielements.js )
 Rails.application.config.assets.precompile += %w( widgets.js )
+Rails.application.config.assets.precompile += %w( doctors.js )

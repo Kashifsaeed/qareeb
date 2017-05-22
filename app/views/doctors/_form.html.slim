@@ -1,0 +1,13 @@
+= simple_form_for(@doctor) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :phone
+    = f.input :speciality
+    = f.input :type, :as => :select, :collection => Doctor.types
+    = f.input :gender, :as => :select, :collection => Doctor.genders
+    = f.input :pmdc_id
+
+  .form-actions
+    = f.button :submit
