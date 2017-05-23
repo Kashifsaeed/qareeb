@@ -4,6 +4,6 @@ class Doctor < ApplicationRecord
   accepts_nested_attributes_for :clinics
 
   enum gender: [ :male, :female ]
-  enum type: [ :medical, :dental ]
+  enum subtype: [ :medical, :dental ]
 
 end

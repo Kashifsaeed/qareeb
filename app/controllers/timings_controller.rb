@@ -69,6 +69,7 @@ class TimingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def timing_params
-      params.fetch(:timing, {})
+      # params.fetch(:timing, {})
+      params.require(:timing).permit(:day, :available, :fee, :from, :till, :clinic_id)
     end
 end

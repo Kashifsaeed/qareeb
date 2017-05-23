@@ -5,8 +5,8 @@
     = f.input :name
     = f.input :phone
     = f.input :speciality
-    = f.input :type, :as => :select, :collection => Doctor.types
-    = f.input :gender, :as => :select, :collection => Doctor.genders
+    = f.input :subtype, :as => :select, :collection => Doctor.subtypes.keys.to_a
+    = f.input :gender, :as => :select, :collection => Doctor.genders.keys.to_a
     = f.input :pmdc_id
 
   .form-actions
