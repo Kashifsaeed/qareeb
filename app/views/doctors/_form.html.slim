@@ -1,13 +1,56 @@
 = simple_form_for(@doctor) do |f|
   = f.error_notification
+  - if @doctor.errors.any?
+    div
+      ul
+        li
+          - @doctor.errors.full_messages.each do |msg|
+            = msg
 
   .form-inputs
-    = f.input :name
-    = f.input :phone
-    = f.input :speciality
-    = f.input :subtype, :as => :select, :collection => Doctor.subtypes.keys.to_a
-    = f.input :gender, :as => :select, :collection => Doctor.genders.keys.to_a
-    = f.input :pmdc_id
-
+    .ibox.float-e-margins
+      .ibox-content
+        .row
+          .col-sm-3
+            = f.label :name
+          .col-sm-9
+            = f.text_field :name, class: "form-control"
+        hr.hr-line-dashed
+        .row
+          .col-sm-3
+            = f.label :phone
+          .col-sm-9
+            = f.number_field :phone, class: "form-control"
+        hr.hr-line-dashed
+        .row
+          .col-sm-3
+            = f.label :gender
+          .col-sm-9
+            = f.select :gender, options_for_select(Doctor.genders.keys.to_a), {}, {class: "form-control"}
+        hr.hr-line-dashed
+        .row
+          .col-sm-3
+            = f.label :subtype
+          .col-sm-9
+            = f.select :subtype, options_for_select(Doctor.subtypes.keys.to_a), {}, {class: "form-control"}
+        hr.hr-line-dashed
+        .row
+          .col-sm-3
+            = f.label :speciality
+          .col-sm-9
+            = f.text_field :speciality, class: "form-control"
+        hr.hr-line-dashed
+        .row
+          .col-sm-3
+            = f.label :pmdc_id
+          .col-sm-9
+            = f.number_field :pmdc_id, class: "form-control"
+    h1 Clinics
+    #clinics
+    = f.fields_for :clinics do |clinic|
+          = render 'clinic_fields', f: clinic
+    .links
+      = link_to_add_association 'add clinic', f, :clinics, class: "btn btn-primary btn-rounded"
+    br
   .form-actions
     = f.button :submit
