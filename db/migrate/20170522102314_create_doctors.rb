@@ -2,7 +2,7 @@ class CreateDoctors < ActiveRecord::Migration[5.0]
   def change
     create_table :doctors do |t|
       t.string :phone
-      t.integer :type
+      t.integer :subtype
       t.integer :gender
       t.string :name
       t.string :speciality

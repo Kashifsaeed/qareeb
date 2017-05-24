@@ -1,0 +1,15 @@
+.nested-fields
+  .row
+    .col-sm-2
+      = f.text_field :day, class: "form-control"
+    .col-sm-2
+      = f.number_field :fee, class: "form-control"
+    .col-sm-3
+      = f.time_field :from, class: "form-control"
+    .col-sm-3
+      = f.time_field :till, class: "form-control"
+    .col-sm-1
+      = f.check_box :available, class: "form-control"
+    .col-sm-1
+      = link_to_remove_association "X", f, class: "btn btn-danger"
+  br
