@@ -1,12 +1,14 @@
 .nested-fields
   .ibox.float-e-margins
+    .ibox-title
+      h3 Clinic
     .ibox-content
       .row
         .col-sm-3
           = f.input :name
-          = f.input :address
-          = f.input :lat
-          = f.input :lng
+          = f.input :address, :input_html => {:onfocus =>"Autocomplete(this)"}
+          = f.hidden_field :lat
+          = f.hidden_field :lng
         .col-sm-9
           panel-panel-default
             panel-title
@@ -29,6 +31,7 @@
               = f.simple_fields_for :timings do |timing|
                 = render 'timing_fields', f: timing
               .link
-                = link_to_add_association 'add timing', f, :timings, class: "btn btn-primary btn-rounded"
+                = link_to_add_association 'Add Timing', f, :timings, class: "btn btn-primary"
       br
-      = link_to_remove_association "remove clinic", f, class: "btn btn-danger"
+      = link_to_remove_association "Remove Clinic", f, class: "btn btn-danger"
+script defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDArtyCNC8feXo4Dc976XMEJ11mqfVJDw4&libraries=places&callback=Autocomplete"
