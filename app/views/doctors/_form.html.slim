@@ -9,6 +9,10 @@
 
   .form-inputs
     .ibox.float-e-margins
+      .ibox-title
+        h3
+          strong
+          | New Doctor
       .ibox-content
         .row
           .col-sm-3
@@ -45,12 +49,11 @@
             = f.label :pmdc_id
           .col-sm-9
             = f.number_field :pmdc_id, class: "form-control"
-    h1 Clinics
     #clinics
     = f.fields_for :clinics do |clinic|
           = render 'clinic_fields', f: clinic
     .links
-      = link_to_add_association 'add clinic', f, :clinics, class: "btn btn-primary btn-rounded"
+      = link_to_add_association 'Add Clinic', f, :clinics, class: "btn btn-primary"
     br
   .form-actions
     = f.button :submit
