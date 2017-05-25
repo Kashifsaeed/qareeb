@@ -1,0 +1,34 @@
+.nested-fields
+  .ibox.float-e-margins
+    .ibox-content
+      .row
+        .col-sm-3
+          = f.input :name
+          = f.input :address
+          = f.input :lat
+          = f.input :lng
+        .col-sm-9
+          panel-panel-default
+            panel-title
+              h2 Timings
+              hr
+            panel-body
+              .row
+                .col-xs-2
+                  | Day
+                .col-xs-2
+                  | Fees
+                .col-xs-3
+                  | From
+                .col-xs-3
+                  | Till
+                .col-xs-1
+                  | Available
+              br
+              #timings
+              = f.simple_fields_for :timings do |timing|
+                = render 'timing_fields', f: timing
+              .link
+                = link_to_add_association 'add timing', f, :timings, class: "btn btn-primary btn-rounded"
+      br
+      = link_to_remove_association "remove clinic", f, class: "btn btn-danger"

@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170522104659) do
 
   create_table "doctors", force: :cascade do |t|
     t.string   "phone"
-    t.integer  "type"
+    t.integer  "subtype"
     t.integer  "gender"
     t.string   "name"
     t.string   "speciality"
