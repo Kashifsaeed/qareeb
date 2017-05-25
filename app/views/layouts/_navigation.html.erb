@@ -29,7 +29,12 @@
                     IN+
                 </div>
             </li>
-            <li class="<%= is_active_controller('dashboards') %>">
+            <li>
+                <%= link_to new_doctor_path do %>
+                <i class="fa fa-diamond"></i> <span class="nav-label">Doctors</span>
+                <% end %>
+            </li>
+            <!-- <li class="<%= is_active_controller('dashboards') %>">
                 <a href=""><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level <%= is_active_controller('dashboards') %>">
                     <li class="<%= is_active_action('dashboard_1') %>"><%= link_to "Dashboard v.1", root_path %></li>
@@ -183,7 +188,7 @@
                 <%= link_to cssanimations_index_path do %>
                 <i class="fa fa-magic"></i> <span class="nav-label">CSS Animations </span><span class="label label-info pull-right">62</span>
                 <% end %>
-            </li>
+            </li> -->
         </ul>
 
     </div>
