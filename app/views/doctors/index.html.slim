@@ -1,18 +1,20 @@
 h1 Listing doctors
 
-table
-  thead
-    tr
-      th
-      th
-      th
-
-  tbody
-    - @doctors.each do |doctor|
-      tr
-        td = link_to 'Show', doctor
-        td = link_to 'Edit', edit_doctor_path(doctor)
-        td = link_to 'Destroy', doctor, data: { confirm: 'Are you sure?' }, method: :delete
+.ibox
+  .ibox-content
+    .table-responsive
+      table.table-striped
+        thead
+          tr
+            th Name
+            th Speciality
+            th Action
+        tbody
+          - @doctors.each do |doctor|
+            tr
+              td = link_to 'Show', doctor
+              td = link_to 'Edit', edit_doctor_path(doctor)
+              td = link_to 'Destroy', doctor, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 

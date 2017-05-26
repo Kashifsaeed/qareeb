@@ -97,6 +97,7 @@ GEM
       thor (~> 0.19.1)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     hub (1.12.4)
     i18n (0.8.1)
     interception (0.5)
@@ -279,6 +280,7 @@ DEPENDENCIES
   figaro
   font-awesome-rails
   foreman
+  gmaps4rails
   hub
   jbuilder (~> 2.5)
   jquery-rails
