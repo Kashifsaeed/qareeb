@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20170522104659) do
 
   create_table "doctors", force: :cascade do |t|
     t.string   "phone"
-    t.integer  "subtype"
-    t.integer  "gender"
+    t.string  "subtype"
+    t.string  "gender"
     t.string   "name"
     t.string   "speciality"
     t.string   "pmdc_id"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170522104659) do
   end
 
   create_table "timings", force: :cascade do |t|
-    t.string   "day"
+    t.string  "day"
     t.boolean  "available",  default: false
     t.float    "fee"
     t.time     "from"

@@ -30,13 +30,13 @@
           .col-sm-3
             = f.label :gender
           .col-sm-9
-            = f.select :gender, options_for_select(Doctor.genders.keys.to_a), {}, {class: "form-control"}
+            = f.select :gender, [['Male', :male], ['Female', :female]], {}, {class: "form-control"}
         hr.hr-line-dashed
         .row
           .col-sm-3
             = f.label :subtype
           .col-sm-9
-            = f.select :subtype, options_for_select(Doctor.subtypes.keys.to_a), {}, {class: "form-control"}
+            = f.select :subtype, [['Medical', :medical], ['Dental', :dental]], {}, {class: "form-control"}
         hr.hr-line-dashed
         .row
           .col-sm-3
@@ -51,7 +51,7 @@
             = f.number_field :pmdc_id, class: "form-control"
     #clinics
     = f.fields_for :clinics do |clinic|
-          = render 'clinic_fields', f: clinic
+      = render 'clinic_fields', f: clinic
     .links
       = link_to_add_association 'Add Clinic', f, :clinics, class: "btn btn-primary"
     br
