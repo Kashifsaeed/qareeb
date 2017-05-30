@@ -5,9 +5,9 @@
     .col-xs-2
       = f.number_field :fee, class: "form-control"
     .col-xs-3
-      = f.time_select :from, { minute_step: 15 }, class: "form-control"
+      = f.time_select :from, { minute_step: 15, :default => { :hour => '00', :minute => '00' } }, class: "form-control"
     .col-xs-3
-      = f.time_select :till, { minute_step: 15 }, class: "form-control"
+      = f.time_select :till, { minute_step: 15, :default => { :hour => '00', :minute => '00' } }, class: "form-control"
     .col-xs-1
       = f.check_box :available, class: "form-control"
     .col-xs-1
