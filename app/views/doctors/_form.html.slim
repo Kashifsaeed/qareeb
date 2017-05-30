@@ -53,7 +53,9 @@
     = f.fields_for :clinics do |clinic|
       = render 'clinic_fields', f: clinic
     .links
-      = link_to_add_association 'Add Clinic', f, :clinics, class: "btn btn-primary"
+      = link_to_add_association 'Add Clinic', f, :clinics, class: "btn btn-primary", id: 'add_clinic'
     br
   .form-actions
     = f.button :submit
+
+script defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDArtyCNC8feXo4Dc976XMEJ11mqfVJDw4&libraries=places&callback=initialize"
