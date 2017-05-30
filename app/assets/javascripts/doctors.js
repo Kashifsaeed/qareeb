@@ -25,13 +25,13 @@ function getAllExistingMaps() {
 
 function initMap(element) {
   lng = parseFloat(element.previousSibling.previousSibling.value);
-  lat = parseFloat(element.previousSibling.previousSibling.previousSibling.value);
   if (isNaN(lng)) {
     lng = 67.0099;
     lat = 24.8615;
     zoom = 13;
   }
   else {
+    lat = parseFloat(element.previousSibling.previousSibling.previousSibling.value);
     zoom = 15;
   }
   var map = new google.maps.Map(element, {
