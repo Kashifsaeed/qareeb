@@ -5,6 +5,8 @@ $(window).keydown(function(event){
   }  
 });
 
+// NEW DOCTOR 
+
 var maps = [];
 
 function initialize() {
@@ -74,19 +76,13 @@ function Autocomplete(element){
   });
 }
 
+// SHOW DOCTOR 
+
 function initializeShow() {
   loadAllMaps();
 }
 
 function loadAllMaps() {
-  // where to load maps 
-  // var divs = document.getElementsByTagName("div"), item;
-  // for (var i = 0, len = divs.length; i < len; i++) {
-  //   item = divs[i];
-  //   if (item.id && item.id.indexOf("map") == 0) {
-  //     loadMap(item);
-  //   }
-  // }
   divs = document.getElementsByClassName("map");
   for (var i=0; i<divs.length; i++) {
     loadMap(divs[i]);
@@ -110,3 +106,22 @@ function loadMap(element) {
     disableDoubleClickZoom: true 
   });
 }
+
+// VALIDATION 
+
+// $("#new_doctor").validate({
+//   rules: {
+//     "doctor[name]": {
+//       required: true,
+//     },
+//     "doctor[phone]": {
+//       required: true,
+//     },
+//     "doctor[speciality]": {
+//       required: true,
+//     },
+//     "doctor[pmdc_id]": {
+//       required: true,
+//     }
+//   }
+// });
