@@ -1,6 +1,93 @@
 p#notice = notice
+h1 Doctor Detail
 
+.ibox
+  .ibox-content
+    table.table.table-hover
+      tbody
+        tr
+          td 
+            | Name: 
+          td = @doctor.name.capitalize 
+        tr
+          td 
+            | Phone: 
+          td = @doctor.phone
+        tr
+          td 
+            | Gender: 
+          td = @doctor.gender.capitalize 
+        tr
+          td 
+            | Type: 
+          td = @doctor.subtype.capitalize 
+        tr
+          td 
+            | Speciality: 
+          td = @doctor.speciality.capitalize 
+        tr
+          td 
+            | PM&DC ID: 
+          td = @doctor.pmdc_id
+- @doctor.clinics.each do |clinic|
+  .ibox.float-e-margins
+    .ibox-title
+      h3 Clinic
+    .ibox-content
+      .row
+        .col-sm-3
+          table.table.table-hover
+            tbody
+              tr
+                td 
+                  | Name: 
+                td = clinic.name.capitalize 
+              tr
+                td 
+                  | Address: 
+                td = clinic.address
+        .col-sm-9
+          h2 Timings
+          table.table.table-hover
+            thead
+              tr
+                th 
+                  | Day 
+                th 
+                  | Fees 
+                th 
+                  | From 
+                th 
+                  | Till 
+                th 
+                  | Available 
+            tbody
+              - clinic.timings.each do |timing|
+                - if timing.available 
+                  tr.success 
+                    th 
+                      = timing.day.capitalize  
+                    th 
+                      = timing.fee 
+                    th 
+                      = timing.from.strftime("%H:%M") 
+                    th 
+                      = timing.till.strftime("%H:%M") 
+                    th 
+                      = timing.available 
+                - else
+                  tr
+                    th 
+                      = timing.day.capitalize  
+                    th 
+                      = timing.fee 
+                    th 
+                      = timing.from.strftime("%H:%M") 
+                    th 
+                      = timing.till.strftime("%H:%M") 
+                    th 
+                      = timing.available 
 
-= link_to 'Edit', edit_doctor_path(@doctor)
-'|
-= link_to 'Back', doctors_path
+= link_to 'Edit', edit_doctor_path(@doctor), class: "btn-sm btn-success"
+'
+= link_to 'Back', doctors_path, class: "btn-sm btn-default"
