@@ -45,7 +45,10 @@ h1 Doctor Detail
               tr
                 td 
                   | Address: 
-                td = clinic.address
+                td = clinic.address 
+          .map style=("width: 100%; height: 200px;")
+            .hidden = clinic.lat 
+            .hidden = clinic.lng 
         .col-sm-9
           h2 Timings
           table.table.table-hover
@@ -91,3 +94,5 @@ h1 Doctor Detail
 = link_to 'Edit', edit_doctor_path(@doctor), class: "btn-sm btn-success"
 '
 = link_to 'Back', doctors_path, class: "btn-sm btn-default"
+
+script defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDArtyCNC8feXo4Dc976XMEJ11mqfVJDw4&libraries=places&callback=initializeShow"

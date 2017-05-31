@@ -1,3 +1,10 @@
+$(window).keydown(function(event){
+  if(event.keyCode == 13) { 
+    event.preventDefault(); 
+    return false; 
+  }  
+});
+
 var maps = [];
 
 function initialize() {
@@ -64,5 +71,42 @@ function Autocomplete(element){
       maps[id].setCenter(place.geometry.location);
       maps[id].setZoom(17);
     }
+  });
+}
+
+function initializeShow() {
+  loadAllMaps();
+}
+
+function loadAllMaps() {
+  // where to load maps 
+  // var divs = document.getElementsByTagName("div"), item;
+  // for (var i = 0, len = divs.length; i < len; i++) {
+  //   item = divs[i];
+  //   if (item.id && item.id.indexOf("map") == 0) {
+  //     loadMap(item);
+  //   }
+  // }
+  divs = document.getElementsByClassName("map");
+  for (var i=0; i<divs.length; i++) {
+    loadMap(divs[i]);
+  }
+}
+
+function loadMap(element) {
+  lat = parseFloat(element.firstChild.innerHTML);
+  lng = parseFloat(element.lastChild.innerHTML);
+  console.log(element);
+  new google.maps.Map(element, {
+    zoom: 15, 
+    center: {
+      lat: lat, 
+      lng: lng 
+    }, 
+    mapTypeId: 'terrain', 
+    draggable: false, 
+    zoomControl: false, 
+    scrollwheel: false, 
+    disableDoubleClickZoom: true 
   });
 }
