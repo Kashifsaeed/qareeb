@@ -1,10 +1,9 @@
 = simple_form_for(@doctor) do |f|
-  = f.error_notification
   - if @doctor.errors.any?
-    div
+    .alert.alert-danger
       ul
-        li
-          - @doctor.errors.full_messages.each do |msg|
+        - @doctor.errors.full_messages.each do |msg|
+          li
             = msg
 
   .form-inputs
