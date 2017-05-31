@@ -12,9 +12,9 @@ h1 Listing doctors
       tbody
         - @doctors.each do |doctor|
           tr
-            td = doctor.name 
-            td = doctor.subtype 
-            td = doctor.speciality 
+            td = doctor.name.capitalize 
+            td = doctor.subtype.capitalize 
+            td = doctor.speciality.capitalize 
             td 
               = link_to 'Show', doctor, class: "btn-sm btn-primary"
               '
