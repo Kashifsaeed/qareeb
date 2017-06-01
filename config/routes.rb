@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 	
   resources :timings
   resources :clinics
-  resources :doctors
+  # resources :doctors
+  resources :doctors do
+    collection do
+      get :autofill
+    end
+  end
   devise_for :users
 
   # You can have the root of your site routed with "root"

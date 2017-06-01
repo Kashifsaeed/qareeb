@@ -29,8 +29,9 @@ h1 Doctor Detail
           td 
             | PM&DC ID: 
           td = @doctor.pmdc_id
+          
 - @doctor.clinics.each do |clinic|
-  .ibox.float-e-margins
+  .ibox
     .ibox-title
       h3 Clinic
     .ibox-content
@@ -91,8 +92,10 @@ h1 Doctor Detail
                     th 
                       = timing.available 
 
-= link_to 'Edit', edit_doctor_path(@doctor), class: "btn-sm btn-success"
+= link_to 'Edit', edit_doctor_path(@doctor), class: "btn btn-success"
 '
-= link_to 'Back', doctors_path, class: "btn-sm btn-default"
+= link_to 'Back', doctors_path, class: "btn btn-default"
+
+hr
 
 script defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDArtyCNC8feXo4Dc976XMEJ11mqfVJDw4&libraries=places&callback=initializeShow"

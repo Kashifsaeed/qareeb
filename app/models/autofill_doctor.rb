@@ -1,0 +1,2 @@
+class AutofillDoctor < ApplicationRecord
+end

@@ -2,13 +2,13 @@ h1 Listing doctors
 
 .ibox
   .ibox-content
-    table.table.table-bordered
+    table.table.table-hover
       thead
         tr
-          th Name
+          th Name 
           th Type 
           th Speciality 
-          th Action
+          th Action 
       tbody
         - @doctors.each do |doctor|
           tr
@@ -20,8 +20,7 @@ h1 Listing doctors
               '
               = link_to 'Edit', edit_doctor_path(doctor), class: "btn-sm btn-success"
               '
-              = link_to 'Destroy', doctor, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn-sm btn-danger"
+              = link_to 'Delete', doctor, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn-sm btn-danger"
 
-br
-
-= link_to 'New Doctor', new_doctor_path
+= link_to 'New Doctor', new_doctor_path, class: "btn btn-success"
+hr

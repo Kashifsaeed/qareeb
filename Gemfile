@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'font-awesome-rails'
 gem 'cocoon'
 gem 'figaro'
-gem 'gmaps4rails'
+gem 'jquery-ui-rails'
 group :development, :test do
   gem 'byebug', platform: :mri
 end
