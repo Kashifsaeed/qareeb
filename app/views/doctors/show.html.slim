@@ -3,31 +3,31 @@ h1 Doctor Detail
 
 .ibox
   .ibox-content
-    table.table.table-hover
+    table.table.table-striped.table-hover
       tbody
         tr
-          td 
-            | Name: 
+          td.col-sm-3 
+            b Name: 
           td = @doctor.name.capitalize 
         tr
-          td 
-            | Phone: 
+          td.col-sm-3 
+            b Phone: 
           td = @doctor.phone
         tr
-          td 
-            | Gender: 
+          td.col-sm-3 
+            b Gender: 
           td = @doctor.gender.capitalize 
         tr
-          td 
-            | Type: 
+          td.col-sm-3 
+            b Type: 
           td = @doctor.subtype.capitalize 
         tr
-          td 
-            | Speciality: 
+          td.col-sm-3 
+            b Speciality: 
           td = @doctor.speciality.capitalize 
         tr
-          td 
-            | PM&DC ID: 
+          td.col-sm-3 
+            b PM&DC ID: 
           td = @doctor.pmdc_id
           
 - @doctor.clinics.each do |clinic|
@@ -41,18 +41,18 @@ h1 Doctor Detail
             tbody
               tr
                 td 
-                  | Name: 
+                  b Name: 
                 td = clinic.name.capitalize 
               tr
                 td 
-                  | Address: 
+                  b Address: 
                 td = clinic.address 
           .map style=("width: 100%; height: 200px;")
             .hidden = clinic.lat 
             .hidden = clinic.lng 
         .col-sm-9
           h2 Timings
-          table.table.table-hover
+          table.table.table-striped.table-hover
             thead
               tr
                 th 
@@ -67,29 +67,20 @@ h1 Doctor Detail
                   | Available 
             tbody
               - clinic.timings.each do |timing|
-                - if timing.available 
-                  tr.success 
-                    th 
-                      = timing.day.capitalize  
-                    th 
-                      = timing.fee 
-                    th 
-                      = timing.from.strftime("%H:%M") 
-                    th 
-                      = timing.till.strftime("%H:%M") 
-                    th 
-                      = timing.available 
-                - else
-                  tr
-                    th 
-                      = timing.day.capitalize  
-                    th 
-                      = timing.fee 
-                    th 
-                      = timing.from.strftime("%H:%M") 
-                    th 
-                      = timing.till.strftime("%H:%M") 
-                    th 
+                tr
+                  td 
+                    = timing.day.capitalize  
+                  td 
+                    = timing.fee 
+                  td 
+                    = timing.from.strftime("%H:%M") 
+                  td 
+                    = timing.till.strftime("%H:%M") 
+                  td 
+                    - if timing.available 
+                      small.label.label-primary
+                        = timing.available 
+                    - else
                       = timing.available 
 
 = link_to 'Edit', edit_doctor_path(@doctor), class: "btn btn-success"
