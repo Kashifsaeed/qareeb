@@ -3,32 +3,33 @@ h1 Doctor Detail
 
 .ibox
   .ibox-content
-    table.table.table-striped.table-hover
-      tbody
-        tr
-          td.col-sm-3 
-            b Name: 
-          td = @doctor.name.capitalize 
-        tr
-          td.col-sm-3 
-            b Phone: 
-          td = @doctor.phone
-        tr
-          td.col-sm-3 
-            b Gender: 
-          td = @doctor.gender.capitalize 
-        tr
-          td.col-sm-3 
-            b Type: 
-          td = @doctor.subtype.capitalize 
-        tr
-          td.col-sm-3 
-            b Speciality: 
-          td = @doctor.speciality.capitalize 
-        tr
-          td.col-sm-3 
-            b PM&DC ID: 
-          td = @doctor.pmdc_id
+    .table-responsive
+      table.table.table-striped.table-hover
+        tbody
+          tr
+            td.col-sm-3 
+              b Name: 
+            td = @doctor.name.capitalize 
+          tr
+            td.col-sm-3 
+              b Phone: 
+            td = @doctor.phone
+          tr
+            td.col-sm-3 
+              b Gender: 
+            td = @doctor.gender.capitalize 
+          tr
+            td.col-sm-3 
+              b Type: 
+            td = @doctor.subtype.capitalize 
+          tr
+            td.col-sm-3 
+              b Speciality: 
+            td = @doctor.speciality.capitalize 
+          tr
+            td.col-sm-3 
+              b PM&DC ID: 
+            td = @doctor.pmdc_id
           
 - @doctor.clinics.each do |clinic|
   .ibox
