@@ -113,7 +113,7 @@ function loadMap(element) {
 // AUTOCOMPLETE 
 
 $("#doctor_name").autocomplete({
-  source: "/doctors/autofill", 
+  source: "/doctors/autofill?type=name", 
   minLength: 2 
 });
 

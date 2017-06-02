@@ -64,9 +64,17 @@ class DoctorsController < ApplicationController
   def autofill
     @records = []
     if params[:term]
-      records = AutofillDoctor.where("lower(name) LIKE ?", "%#{params[:term].downcase}%").limit(10)
-      records.each do |record|
-        @records.push(record[:name])
+      case params[:type]
+      when 'name'
+        records = AutofillDoctor.where("lower(name) LIKE ?", "%#{params[:term].downcase}%").limit(5)
+        records.each do |record|
+          @records.push(record[:name])
+        end
+      when 'pmdc_id'
+        records = AutofillDoctor.where("lower(pmdc_id) LIKE ?", "%#{params[:term].downcase}%").limit(5)
+        records.each do |record|
+          @records.push(record[:name])
+        end
       end
     end
     respond_to do |format|
