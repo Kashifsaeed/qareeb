@@ -52,36 +52,37 @@ h1 Doctor Detail
             .hidden = clinic.lng 
         .col-sm-9
           h2 Timings
-          table.table.table-striped.table-hover
-            thead
-              tr
-                th 
-                  | Day 
-                th 
-                  | Fees 
-                th 
-                  | From 
-                th 
-                  | Till 
-                th 
-                  | Available 
-            tbody
-              - clinic.timings.each do |timing|
+          .table-responsive
+            table.table.table-striped.table-hover
+              thead
                 tr
-                  td 
-                    = timing.day.capitalize  
-                  td 
-                    = timing.fee 
-                  td 
-                    = timing.from.strftime("%H:%M") 
-                  td 
-                    = timing.till.strftime("%H:%M") 
-                  td 
-                    - if timing.available 
-                      small.label.label-primary
+                  th 
+                    | Day 
+                  th 
+                    | Fees 
+                  th 
+                    | From 
+                  th 
+                    | Till 
+                  th 
+                    | Available 
+              tbody
+                - clinic.timings.each do |timing|
+                  tr
+                    td 
+                      = timing.day.capitalize  
+                    td 
+                      = timing.fee 
+                    td 
+                      = timing.from.strftime("%H:%M") 
+                    td 
+                      = timing.till.strftime("%H:%M") 
+                    td 
+                      - if timing.available 
+                        small.label.label-primary
+                          = timing.available 
+                      - else
                         = timing.available 
-                    - else
-                      = timing.available 
 
 = link_to 'Edit', edit_doctor_path(@doctor), class: "btn btn-success"
 '

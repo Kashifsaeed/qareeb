@@ -53,7 +53,8 @@ function initMap(element) {
     draggable: false, 
     zoomControl: false, 
     scrollwheel: false, 
-    disableDoubleClickZoom: true 
+    disableDoubleClickZoom: true, 
+    streetViewControl: false 
   });
   maps.push(map);
 }
@@ -106,7 +107,8 @@ function loadMap(element) {
     draggable: false, 
     zoomControl: false, 
     scrollwheel: false, 
-    disableDoubleClickZoom: true 
+    disableDoubleClickZoom: true, 
+    streetViewControl: false 
   });
 }
 
