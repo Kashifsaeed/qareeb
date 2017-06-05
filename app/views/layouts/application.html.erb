@@ -15,13 +15,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 </head>
 <body >
 
 <!-- Skin configuration box -->
-<%= render 'layouts/skinconfig' %>
+<%# render 'layouts/skinconfig' %>
 
     <!-- Wrapper-->
     <div id="wrapper" class="<%= params[:controller] %>.<%= params[:action] %>">
@@ -39,7 +39,7 @@
             <%= yield %>
 
             <!-- Footer -->
-            <%= render 'layouts/footer' %>
+            <%# render 'layouts/footer' %>
 
         </div>
         <!-- End page wrapper-->

@@ -49,7 +49,12 @@ function initMap(element) {
       lat: lat,
       lng: lng
     },
-    mapTypeId: 'terrain'
+    mapTypeId: 'terrain', 
+    draggable: false, 
+    zoomControl: false, 
+    scrollwheel: false, 
+    disableDoubleClickZoom: true, 
+    streetViewControl: false 
   });
   maps.push(map);
 }
@@ -92,7 +97,6 @@ function loadAllMaps() {
 function loadMap(element) {
   lat = parseFloat(element.firstChild.innerHTML);
   lng = parseFloat(element.lastChild.innerHTML);
-  console.log(element);
   new google.maps.Map(element, {
     zoom: 15, 
     center: {
@@ -103,9 +107,17 @@ function loadMap(element) {
     draggable: false, 
     zoomControl: false, 
     scrollwheel: false, 
-    disableDoubleClickZoom: true 
+    disableDoubleClickZoom: true, 
+    streetViewControl: false 
   });
 }
+
+// AUTOCOMPLETE 
+
+$("#doctor_name").autocomplete({
+  source: "/doctors/autofill?type=name", 
+  minLength: 2 
+});
 
 // VALIDATION 
 

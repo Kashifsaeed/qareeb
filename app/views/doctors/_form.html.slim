@@ -47,7 +47,7 @@
           .col-sm-3
             = f.label :pmdc_id
           .col-sm-9
-            = f.number_field :pmdc_id, class: "form-control"
+            = f.text_field :pmdc_id, class: "form-control"
     #clinics
     = f.fields_for :clinics do |clinic|
       = render 'clinic_fields', f: clinic

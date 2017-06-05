@@ -2,26 +2,26 @@ h1 Listing doctors
 
 .ibox
   .ibox-content
-    table.table.table-bordered
-      thead
-        tr
-          th Name
-          th Type 
-          th Speciality 
-          th Action
-      tbody
-        - @doctors.each do |doctor|
+    .table-responsive
+      table.table.table-striped.table-hover
+        thead
           tr
-            td = doctor.name.capitalize 
-            td = doctor.subtype.capitalize 
-            td = doctor.speciality.capitalize 
-            td 
-              = link_to 'Show', doctor, class: "btn-sm btn-primary"
-              '
-              = link_to 'Edit', edit_doctor_path(doctor), class: "btn-sm btn-success"
-              '
-              = link_to 'Destroy', doctor, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn-sm btn-danger"
+            th Name 
+            th Type 
+            th Speciality 
+            th Action 
+        tbody
+          - @doctors.each do |doctor|
+            tr
+              td = doctor.name.capitalize 
+              td = doctor.subtype.capitalize 
+              td = doctor.speciality.capitalize 
+              td 
+                = link_to 'Show', doctor, class: "btn-sm btn-primary"
+                '
+                = link_to 'Edit', edit_doctor_path(doctor), class: "btn-sm btn-success"
+                '
+                = link_to 'Delete', doctor, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn-sm btn-danger"
 
-br
-
-= link_to 'New Doctor', new_doctor_path
+= link_to 'New Doctor', new_doctor_path, class: "btn btn-success"
+hr

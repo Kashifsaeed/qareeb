@@ -61,6 +61,28 @@ class DoctorsController < ApplicationController
     end
   end
 
+  def autofill
+    @records = []
+    if params[:term]
+      case params[:type]
+      when 'name'
+        records = AutofillDoctor.where("lower(name) LIKE ?", "%#{params[:term].downcase}%").limit(5)
+        records.each do |record|
+          @records.push(record[:name])
+        end
+      when 'pmdc_id'
+        records = AutofillDoctor.where("lower(pmdc_id) LIKE ?", "%#{params[:term].downcase}%").limit(5)
+        records.each do |record|
+          @records.push(record[:name])
+        end
+      end
+    end
+    respond_to do |format|
+      format.html 
+      format.json { render json: @records }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_doctor

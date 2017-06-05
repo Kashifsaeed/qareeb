@@ -3,34 +3,36 @@ h1 Doctor Detail
 
 .ibox
   .ibox-content
-    table.table.table-hover
-      tbody
-        tr
-          td 
-            | Name: 
-          td = @doctor.name.capitalize 
-        tr
-          td 
-            | Phone: 
-          td = @doctor.phone
-        tr
-          td 
-            | Gender: 
-          td = @doctor.gender.capitalize 
-        tr
-          td 
-            | Type: 
-          td = @doctor.subtype.capitalize 
-        tr
-          td 
-            | Speciality: 
-          td = @doctor.speciality.capitalize 
-        tr
-          td 
-            | PM&DC ID: 
-          td = @doctor.pmdc_id
+    .table-responsive
+      table.table.table-striped.table-hover
+        tbody
+          tr
+            td.col-sm-3 
+              b Name: 
+            td = @doctor.name.capitalize 
+          tr
+            td.col-sm-3 
+              b Phone: 
+            td = @doctor.phone
+          tr
+            td.col-sm-3 
+              b Gender: 
+            td = @doctor.gender.capitalize 
+          tr
+            td.col-sm-3 
+              b Type: 
+            td = @doctor.subtype.capitalize 
+          tr
+            td.col-sm-3 
+              b Speciality: 
+            td = @doctor.speciality.capitalize 
+          tr
+            td.col-sm-3 
+              b PM&DC ID: 
+            td = @doctor.pmdc_id
+          
 - @doctor.clinics.each do |clinic|
-  .ibox.float-e-margins
+  .ibox
     .ibox-title
       h3 Clinic
     .ibox-content
@@ -40,59 +42,53 @@ h1 Doctor Detail
             tbody
               tr
                 td 
-                  | Name: 
+                  b Name: 
                 td = clinic.name.capitalize 
               tr
                 td 
-                  | Address: 
+                  b Address: 
                 td = clinic.address 
           .map style=("width: 100%; height: 200px;")
             .hidden = clinic.lat 
             .hidden = clinic.lng 
         .col-sm-9
           h2 Timings
-          table.table.table-hover
-            thead
-              tr
-                th 
-                  | Day 
-                th 
-                  | Fees 
-                th 
-                  | From 
-                th 
-                  | Till 
-                th 
-                  | Available 
-            tbody
-              - clinic.timings.each do |timing|
-                - if timing.available 
-                  tr.success 
-                    th 
-                      = timing.day.capitalize  
-                    th 
-                      = timing.fee 
-                    th 
-                      = timing.from.strftime("%H:%M") 
-                    th 
-                      = timing.till.strftime("%H:%M") 
-                    th 
-                      = timing.available 
-                - else
+          .table-responsive
+            table.table.table-striped.table-hover
+              thead
+                tr
+                  th 
+                    | Day 
+                  th 
+                    | Fees 
+                  th 
+                    | From 
+                  th 
+                    | Till 
+                  th 
+                    | Available 
+              tbody
+                - clinic.timings.each do |timing|
                   tr
-                    th 
+                    td 
                       = timing.day.capitalize  
-                    th 
+                    td 
                       = timing.fee 
-                    th 
+                    td 
                       = timing.from.strftime("%H:%M") 
-                    th 
+                    td 
                       = timing.till.strftime("%H:%M") 
-                    th 
-                      = timing.available 
+                    td 
+                      - if timing.available 
+                        small.label.label-primary
+                          = timing.available 
+                      - else
+                        = timing.available 
 
-= link_to 'Edit', edit_doctor_path(@doctor), class: "btn-sm btn-success"
+= link_to 'Edit', edit_doctor_path(@doctor), class: "btn btn-success"
 '
-= link_to 'Back', doctors_path, class: "btn-sm btn-default"
+= link_to 'Back', doctors_path, class: "btn btn-default"
+
+hr
 
 script defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDArtyCNC8feXo4Dc976XMEJ11mqfVJDw4&libraries=places&callback=initializeShow"
