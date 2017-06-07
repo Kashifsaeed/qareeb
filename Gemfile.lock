@@ -109,6 +109,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    jquery-validation-rails (1.16.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     libv8 (3.16.14.19)
@@ -285,6 +286,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   jquery-ui-rails
+  jquery-validation-rails
   launchy
   listen (~> 3.0.5)
   pg
