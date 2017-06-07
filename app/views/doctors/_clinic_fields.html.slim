@@ -35,6 +35,6 @@
               = f.simple_fields_for :timings do |timing|
                 = render 'timing_fields', f: timing
               .link
-                = link_to_add_association 'Add Timing', f, :timings, class: "btn btn-primary"
+                = link_to_add_association 'Add Timing', f, :timings, class: "btn btn-primary", id: 'add_timing'
       br
       = link_to_remove_association "Remove Clinic", f, class: "btn btn-danger"

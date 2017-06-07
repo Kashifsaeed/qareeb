@@ -8,6 +8,7 @@ $(window).keydown(function(event){
 // NEW DOCTOR 
 
 var maps = [];
+var timingButtons = 0;
 
 function initialize() {
   getAllExistingMaps();
@@ -19,6 +20,10 @@ function getNewMap() {
     temp = document.getElementById("mapnew_clinics");
     temp.id = 'map' + maps.length;
     initMap(temp);
+    button = document.getElementById("add_timing");
+    button.id = "add_timing" + timingButtons;
+    timingButtons++;
+    button.onclick = validateFee;
   }, 100);
 }
 
@@ -121,19 +126,79 @@ $("#doctor_name").autocomplete({
 
 // VALIDATION 
 
-// $("#new_doctor").validate({
-//   rules: {
-//     "doctor[name]": {
-//       required: true,
-//     },
-//     "doctor[phone]": {
-//       required: true,
-//     },
-//     "doctor[speciality]": {
-//       required: true,
-//     },
-//     "doctor[pmdc_id]": {
-//       required: true,
-//     }
-//   }
-// });
+// New Doctor Page 
+$("#new_doctor").validate({
+  rules: {
+    "doctor[name]": {
+      required: true,
+    },
+    "doctor[phone]": {
+      required: true,
+    },
+    "doctor[speciality]": {
+      required: true,
+    },
+    "doctor[pmdc_id]": {
+      required: true,
+    }
+  }
+});
+
+// Edit Doctor Page 
+$(document).ready(function(){
+  // Get Edit Doctor Form [If Exists] 
+  var forms = document.getElementsByTagName("form"), form;
+  for (var i = 0, len = forms.length; i < len; i++) {
+    form = forms[i];
+    if (form.id && form.id.indexOf("edit_doctor") == 0) {
+      $(form).validate({
+        rules: {
+          "doctor[name]": {
+            required: true,
+          },
+          "doctor[phone]": {
+            required: true,
+          },
+          "doctor[speciality]": {
+            required: true,
+          },
+          "doctor[pmdc_id]": {
+            required: true,
+          }
+        }
+      });
+      // Placed here so it only fires when on Edit Doctor Page 
+      validateFees();
+    }
+  }
+});
+
+function validateFee() {
+  temp = this.parentNode;
+  setTimeout(function(){
+    $(temp.previousSibling.firstChild.firstChild.nextSibling.firstChild).rules( "add", {
+      required: true 
+    });
+  }, 100);
+}
+
+function validateFees() {
+  // Loop through all Existing Clinics 
+  button = document.getElementById("add_timing");
+  while (button !== null) {
+    button.id = "add_timing" + timingButtons;
+    timingButtons++;
+    // Apply Validation to all Timings that Exist 
+    // - Loop through all Existing Timings of Clinic [via DOM Navigation] 
+    timing = button.parentNode.previousSibling.previousSibling.firstChild;
+    while (timing !== null) {
+      $(timing.firstChild.nextSibling.firstChild).rules( "add", {
+        required: true 
+      });
+      timing = timing.parentNode.previousSibling.previousSibling.firstChild;
+    }
+    // Apply Validation to all Timings that will be added 
+    button.onclick = validateFee;
+    button = document.getElementById("add_timing");
+  }
+}

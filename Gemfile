@@ -12,6 +12,7 @@ gem 'font-awesome-rails'
 gem 'cocoon'
 gem 'figaro'
 gem 'jquery-ui-rails'
+gem 'jquery-validation-rails'
 group :development, :test do
   gem 'byebug', platform: :mri
 end
