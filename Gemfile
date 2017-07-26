@@ -29,6 +29,7 @@ gem 'pg'
 gem 'pundit'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'ruby-progressbar'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 group :development do
