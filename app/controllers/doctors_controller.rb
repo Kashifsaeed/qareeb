@@ -66,7 +66,7 @@ class DoctorsController < ApplicationController
     if params[:term]
       case params[:type]
       when 'name'
-        records = AutofillDoctor.where("lower(name) LIKE ?", "%#{params[:term].downcase}%").limit(5)
+        records = AutofillDoctor.where("lower(name) LIKE ?", "%#{params[:term].downcase}%").uniq.limit(5)
         records.each do |record|
           @records.push(record[:name])
         end
